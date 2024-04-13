@@ -30,9 +30,13 @@ class Account
      */
     public function create($label='', $network='eth', $encryptedPrv='', $options=[])
     {
-        $bitgoKeyresult = $this->bitgo->key->bitgo($encryptedPrv, $network, $options);
-        $userKeyresult = $this->bitgo->key->user($encryptedPrv, $network, $options);
-        $backupKeyresult = $this->bitgo->key->backup($encryptedPrv, $network, $options);
+        try {
+            $bitgoKeyresult = $this->bitgo->key->bitgo($encryptedPrv, $network, $options);
+            $userKeyresult = $this->bitgo->key->user($encryptedPrv, $network, $options);
+            $backupKeyresult = $this->bitgo->key->backup($encryptedPrv, $network, $options);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
         $keys[] = $bitgoKeyresult['id'];
         $keys[] = $userKeyresult['id'];
         $keys[] = $backupKeyresult['id'];

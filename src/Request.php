@@ -68,16 +68,19 @@ class Request
             
             $request = $this->client->request($type, $url, $options);
         }
-         catch (ClientException  $e) {
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-            // $erroObj = json_decode($responseBodyAsString);
-            throw new Exception($responseBodyAsString);
-        } catch (RequestException $e) {
-            $response = $e->getResponse();
-            $responseBodyAsString = $response->getBody()->getContents();
-            $erroObj = json_decode($responseBodyAsString);
-            throw new Exception($erroObj->message);
+        //  catch (ClientException  $e) {
+        //     $response = $e->getResponse();
+        //     $responseBodyAsString = $response->getBody()->getContents();
+        //     // $erroObj = json_decode($responseBodyAsString);
+        //     throw new Exception($responseBodyAsString);
+        // } catch (RequestException $e) {
+        //     $response = $e->getResponse();
+        //     $responseBodyAsString = $response->getBody()->getContents();
+        //     $erroObj = json_decode($responseBodyAsString);
+        //     throw new Exception($erroObj->message);
+        // } 
+        catch (Exception $e) {
+            throw $e;
         }
 
         // send and return the request response
