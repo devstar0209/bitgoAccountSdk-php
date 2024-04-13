@@ -170,7 +170,7 @@ class Bitgo
      */
     public function getPath($handle)
     {
-        return isset($this->paths[$handle]) ? $this->version.$this->paths[$handle] : false;
+        return isset($this->paths[$handle]) ? $this->paths[$handle] : false;
     }
     
     /**
