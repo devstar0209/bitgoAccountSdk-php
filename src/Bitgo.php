@@ -35,14 +35,14 @@ class Bitgo
      *
      * @var array
      */
-    private $apiTestPath = 'https://app.bitgo.com/api/';
+    private $apiTestPath = 'https://app.bitgo-test.com/api/';
 
     /**
      * API Real Path
      *
      * @var array
      */
-    private $apiPath = 'https://app.bitgo-test.com/api/';
+    private $apiPath = 'https://app.bitgo.com/api/';
 
     /**
      *
